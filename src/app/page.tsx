@@ -6,15 +6,17 @@ export default function Home() {
   const [injectedObject, setInjectedObject] = useState();
 
   useEffect(() => {
-    // @ts-ignore
-    if (window?.ReactNativeWebView?.injectedObjectJson()) {
-      const customValue = JSON.parse(
-        // @ts-ignore
-        window.ReactNativeWebView.injectedObjectJson()
-      ).customValue;
+    setTimeout(() => {
+      // @ts-ignore
+      if (window?.ReactNativeWebView?.injectedObjectJson()) {
+        const customValue = JSON.parse(
+          // @ts-ignore
+          window.ReactNativeWebView.injectedObjectJson()
+        ).customValue;
 
-      setInjectedObject(customValue);
-    }
+        setInjectedObject(customValue);
+      }
+    }, 2000);
   }, []);
 
   return (
